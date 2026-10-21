@@ -271,12 +271,11 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
       </div>
     </div>
     <div class="sec" id="o5">
-      <h3>Sua condição especial tem prazo para ser acessada.</h3>
-      <p>Entre no grupo da mentoria até domingo, 25 de outubro, às 18h, horário de Brasília, para acessar as informações sobre a condição especial destinada aos participantes do Mind Experience Day.</p>
-      <div class="dl" id="ourg"><i></i>Domingo, 25/10/2026, às 18h — horário de Brasília</div>
+      <h3>Prazo para participar da mentoria</h3>
+      <p>Vai até domingo, 25 de outubro, à meia-noite.</p>
       <div class="clockw" id="oclk"><div><b id="od">00</b><small>dias</small></div><i>:</i><div><b id="oh">00</b><small>horas</small></div><i>:</i><div><b id="om">00</b><small>min</small></div><i>:</i><div><b id="os">00</b><small>seg</small></div></div>
     </div>
-    <a class="btn primary" id="olink" href="#" target="_blank" rel="noopener">Quero acessar minha condição agora</a>
+    <a class="btn primary" id="olink" href="#" target="_blank" rel="noopener">Quero receber a minha condição agora</a>
     <div class="o7"><b>O evento foi o começo. O próximo passo é seu.</b><span>Mind Brokers 360º — Mentalidade, visão e estratégia para o mercado imobiliário.</span></div>
   </section>
 
@@ -340,8 +339,8 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
   }
   F.addEventListener('change',function(e){update();var t=e.target;if(t&&t.name&&t.value==='Outro'){var o=document.getElementById(t.name+'_outro');if(o)o.focus()}}); F.addEventListener('input',update);
   
-  var WA_NUM='5561984178464';function waHref(exp){var m=exp?'Olá, Júlia, tudo bem? Participei do Mind Experience Day e gostaria de saber mais sobre a mentoria Mind Brokers 360º.':'Olá, Júlia, tudo bem? Participei do Mind Experience Day e gostaria de receber minha condição exclusiva para entrar no grupo da mentoria Mind Brokers 360º. Como faço?';return 'https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(m)}
-  var OFFER_END=Date.parse('2026-10-25T18:00:00-03:00'),offs=0;
+  var WA_NUM='5561984178464';function waHref(exp){var m=exp?'Olá, Júlio Rolim, tudo bem? Participei do Mind Experience Day e gostaria de saber mais sobre a mentoria Mind Brokers 360º.':'Olá, Júlio Rolim, tudo bem? Participei do Mind Experience Day e gostaria de receber minha condição exclusiva para entrar no grupo da mentoria Mind Brokers 360º. Como faço?';return 'https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(m)}
+  var OFFER_END=Date.parse('2026-10-26T00:00:00-03:00'),offs=0;
   function tickOffer(){ var left=OFFER_END-(Date.now()+offs);
     if(left<=0){ document.getElementById('o5').hidden=true; document.getElementById('obx').hidden=true; document.getElementById('olink').textContent='Quero conhecer a mentoria'; document.getElementById('olink').href=waHref(true); return false; }
     var t=Math.floor(left/1000); function p(n){return (n<10?'0':'')+n}
