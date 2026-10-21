@@ -123,6 +123,10 @@ section.card{padding:32px 26px;gap:26px}
 .rate{padding-block:16px}
 @media(max-width:520px){.wrap{padding-block:40px 68px;gap:28px}section.card{padding:28px 20px;gap:24px}}
 
+#wa{background:linear-gradient(135deg,#E3C26C,#C9A24A 55%,#A8802F);color:#0A1729;font-weight:700;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 8px 24px rgba(201,162,74,.35)}
+#wa:hover{filter:brightness(1.07)}
+footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-decoration:underline}
+
 .offer{background:radial-gradient(circle at 50% 0,#16233A,#0D1623 70%);color:#F4F2EC;border:1px solid rgba(196,161,90,.55);border-radius:22px;padding:34px 20px;display:flex;flex-direction:column;gap:30px;text-align:center}
 .offer .eyebrow{color:#C4A15A}
 .offer h2{margin:0;font-size:clamp(30px,8.4vw,48px);line-height:1.04;font-weight:700;text-transform:uppercase;text-wrap:balance}
@@ -171,15 +175,15 @@ section.card{padding:32px 26px;gap:26px}
 
   <section class="card">
     <h2><span class="n">01</span>Sobre você</h2>
-    <div class="q"><label for="nome">Nome <span class="sub">(obrigatório · primeiro e último nome)</span></label><input type="text" id="nome" name="nome" autocomplete="name" placeholder="Primeiro e último nome"></div>
-    <div class="q"><span class="lab">Você é <span class="sub">(obrigatório)</span></span><select class="rsel" id="perfil" name="perfil"><option value="">Escolha uma opção</option><option>Corretor(a)</option><option>Arquiteto(a)</option><option>Vendedor(a) de alto padrão</option><option>Gestor(a) / dono(a) de imobiliária</option><option>Outro</option></select><input type="text" class="outro" id="perfil_outro" placeholder="Qual? Escreva aqui" hidden></div>
+    <div class="q"><label for="nome">Nome e sobrenome</label><input type="text" id="nome" name="nome" autocomplete="name" placeholder="Nome e sobrenome"></div>
+    <div class="q"><span class="lab">Você é <span class="sub">(profissão)</span></span><select class="rsel" id="perfil" name="perfil"><option value="">Escolha uma opção</option><option>Corretor(a)</option><option>Arquiteto(a)</option><option>Vendedor(a) de alto padrão</option><option>Gestor(a) / dono(a) de imobiliária</option><option>Outro</option></select><input type="text" class="outro" id="perfil_outro" placeholder="Qual? Escreva aqui" hidden></div>
     <div class="q"><span class="lab">Seu ingresso</span><select class="rsel" id="ingresso" name="ingresso"><option value="">Escolha uma opção</option><option>Platinum</option><option>VIP</option><option>Experience</option><option>Convidado(a)</option></select></div>
     <div class="q"><span class="lab">Como ficou sabendo do evento?</span><select class="rsel" id="origem" name="origem"><option value="">Escolha uma opção</option><option>Instagram</option><option>WhatsApp</option><option>Indicação de amigo</option><option>Minha imobiliária ou empresa</option><option>Outro</option></select><input type="text" class="outro" id="origem_outro" placeholder="Qual? Escreva aqui" hidden></div>
   </section>
 
   <section class="card">
     <h2><span class="n">02</span>Nota geral</h2>
-    <div class="q"><span class="lab">De 0 a 10, quanto você recomendaria o Mind Experience Day a um colega? <span class="sub">(obrigatório)</span></span>
+    <div class="q"><span class="lab">De 0 a 10, quanto você recomendaria o Mind Experience Day a um colega?</span>
       <select class="rsel" id="nps" name="nps" aria-label="Nota de 0 a 10"><option value="">Escolha uma nota</option><option value="10">10 – Recomendaria com certeza</option><option value="9">9</option><option value="8">8</option><option value="7">7</option><option value="6">6</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option><option value="0">0 – Não recomendaria</option></select>
     </div>
   </section>
@@ -221,7 +225,7 @@ section.card{padding:32px 26px;gap:26px}
 
   <section class="card send">
     <h2><span class="n">08</span>Enviar</h2>
-    <p class="hint" style="margin:0;font-size:13px">Ao enviar, você concorda que as respostas e os dados informados (nome e WhatsApp, se preencher) sejam usados pela organização para avaliar o evento e planejar as próximas edições. Se preferir, deixe nome e WhatsApp em branco.</p>
+    <p class="hint" style="margin:0;font-size:13px">Ao enviar, você concorda que as respostas e os dados informados (nome e WhatsApp, quando preenchido) sejam usados pela organização para avaliar o evento e planejar as próximas edições. Se preferir, deixe o WhatsApp em branco.</p>
     <p class="hint" style="margin:0">Ao tocar em Enviar, suas respostas são registradas pela organização.</p>
     <button type="button" class="btn primary" id="wa">Enviar</button>
     <p class="status" id="status" role="status"></p>
@@ -271,7 +275,7 @@ section.card{padding:32px 26px;gap:26px}
     <div class="o7"><b>O evento foi o começo. O próximo passo é seu.</b><span>Mind Brokers 360º — Mentalidade, visão e estratégia para o mercado imobiliário.</span></div>
   </section>
 
-  <footer>Obrigado por fazer parte do Mind Experience Day · mindbrokers360.com · @mindbrokers360</footer>
+  <footer>Obrigado por fazer parte do Mind Experience Day · <a href="https://mindbrokers360.com/" target="_blank" rel="noopener">mindbrokers360.com</a> · <a href="https://www.instagram.com/mindbrokers360/" target="_blank" rel="noopener">@mindbrokers360</a></footer>
 </div>
 
 <script>
@@ -315,7 +319,7 @@ section.card{padding:32px 26px;gap:26px}
   /* máscara do telefone */
   var tel=document.getElementById('tel');tel.addEventListener('input',function(){var d=tel.value.replace(/\D/g,'').slice(0,11);tel.value=d.length>10?'('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7):d.length>6?'('+d.slice(0,2)+') '+d.slice(2,6)+'-'+d.slice(6):d.length>2?'('+d.slice(0,2)+') '+d.slice(2):d.length?'('+d:''});
   /* campos obrigatórios */
-  function missing(){var m=[];if(val('nome').split(/\s+/).filter(Boolean).length<2)m.push(['nome','o seu primeiro e último nome']);if(!radio('nps'))m.push(['nps','a nota de 0 a 10']);if(!radio('perfil'))m.push(['perfil','o seu perfil']);return m}
+  function missing(){var m=[];if(val('nome').split(/\s+/).filter(Boolean).length<2)m.push(['nome','o seu nome e sobrenome']);if(!radio('nps'))m.push(['nps','a nota de 0 a 10']);if(!radio('perfil'))m.push(['perfil','o seu perfil']);return m}
   function check(ev){F.querySelectorAll('.err').forEach(function(e){e.classList.remove('err')});var m=missing();if(!m.length)return true;ev.preventDefault();m.forEach(function(x){var el=F.querySelector('[name="'+x[0]+'"]');if(el&&el.closest('.q'))el.closest('.q').classList.add('err')});var first=F.querySelector('.err');if(first)first.scrollIntoView({behavior:'smooth',block:'center'});status.className='status';status.textContent='Falta responder: '+m.map(function(x){return x[1]}).join(' e ')+'.';return false}
   /* rascunho no navegador */
   var KEY='med-avaliacao-rascunho';function save(){try{var o={};F.querySelectorAll('input,textarea,select').forEach(function(e){if(e.tagName==='SELECT')o[e.name]=e.value;else if(e.type==='radio'){if(e.checked)o[e.name]=e.value}else if(e.id)o[e.id]=e.value});localStorage.setItem(KEY,JSON.stringify(o))}catch(x){}}
