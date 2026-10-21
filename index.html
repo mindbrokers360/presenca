@@ -132,32 +132,78 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
 .sbar b{position:absolute;top:50%;transform:translateY(-50%);left:14px;color:#19E37A;font:700 15px var(--display);transition:left .5s ease}
 .status.ok{font-weight:600}
 
-.offer{background:radial-gradient(circle at 50% 0,#16233A,#0D1623 70%);color:#F4F2EC;border:1px solid rgba(196,161,90,.55);border-radius:22px;padding:34px 20px;display:flex;flex-direction:column;gap:30px;text-align:center}
-.offer .eyebrow{color:#C4A15A}
-.offer h2{margin:0;font-size:clamp(30px,8.4vw,48px);line-height:1.04;font-weight:700;text-transform:uppercase;text-wrap:balance}
-.offer h3{margin:0;font-size:clamp(21px,5.4vw,28px);line-height:1.15;font-weight:600;text-wrap:balance}
-.offer p{margin:0;color:#E6E2D6;font-size:17px;line-height:1.55}
-.offer p+p{margin-top:0}
-.sec{display:flex;flex-direction:column;gap:14px;align-items:center}
-.sec+.sec{padding-top:30px;border-top:1px solid rgba(196,161,90,.25)}
-.sent{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#6FC39A}
-.sec.ob{border:1px solid #C4A15A;border-radius:18px;padding:26px 16px;background:rgba(196,161,90,.08);gap:12px}
-.gd{color:#C4A15A}
-.ob h3{background:linear-gradient(135deg,#E6C980,#C4A15A 55%,#B08A3E);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;text-transform:uppercase}
-.grid4{display:grid;grid-template-columns:1fr;gap:12px;width:100%;text-align:left}
-@media(min-width:560px){.grid4{grid-template-columns:1fr 1fr}}
-.bn{border:1px solid rgba(196,161,90,.35);border-radius:14px;padding:16px;background:rgba(255,255,255,.03)}
-.bn svg{width:24px;height:24px;stroke:#C4A15A;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.bn b{display:block;color:#C4A15A;font-size:19px;font-weight:600;margin:8px 0 4px}
+body.on-offer{background:#070F1D}
+body.on-offer .wrap{max-width:none;padding:0;gap:0}
+body.on-offer::before{display:none}
+body.on-offer footer{padding:28px 20px 44px;background:#070F1D}
+.ofx{display:block;color:#F4F2EC;background:#070F1D;overflow:hidden;text-align:left}
+.ofx .in{max-width:1080px;margin:0 auto;padding:0 20px}
+.ofx h2,.ofx h3{margin:0;text-transform:uppercase;font-weight:700;line-height:1.05;text-wrap:balance}
+.ofx p{margin:0;color:#D9DDE6;font-size:17px;line-height:1.6}
+.ofx .eb{font:500 12px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#C9A24A}
+.ofx .gold{background:linear-gradient(135deg,#E6C980,#C9A24A 55%,#A8802F);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ofx strong{color:#C9A24A;font-weight:600}
+.tb{position:sticky;top:0;z-index:30;background:rgba(7,15,29,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,162,74,.35);padding:10px 16px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#E9D9B0}
+.tb i{width:7px;height:7px;border-radius:50%;background:#E0301F;display:inline-block}
+.tb b{font-weight:600;color:#C9A24A;font-size:14px;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.hero3{padding:0 0 56px;background:radial-gradient(ellipse at 72% 28%,#16233A 0%,#0A1729 55%,#070F1D 100%)}
+.hero3 .in{display:grid;gap:26px;align-items:center}
+.hero3 .tx{display:flex;flex-direction:column;gap:16px}
+.brand{font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:.16em;color:#C9A24A}
+.hero3 h2{font-size:clamp(38px,10vw,70px)}
+.pt{position:relative;width:100%;max-width:620px;aspect-ratio:2/3;margin:0 auto;order:-1;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%),linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect;mask-image:linear-gradient(180deg,#000 62%,transparent 100%),linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.pt svg{display:none}
+.pt .ph{position:absolute;inset:0;background:url(julio-hero.jpg) center top/cover no-repeat}
+.pt .nm{display:none}
+.hero3 .tx{margin-top:-18%;position:relative;z-index:2;padding:0 4px}
+@media(min-width:860px){.hero3{padding:40px 0 70px}.hero3 .in{grid-template-columns:1fr 1.05fr;gap:40px}.pt{order:0;max-width:none;-webkit-mask-image:linear-gradient(180deg,#000 78%,transparent 100%),linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect;mask-image:linear-gradient(180deg,#000 78%,transparent 100%),linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}.hero3 .tx{margin-top:0}}
+.band{padding:76px 0;background:linear-gradient(180deg,rgba(7,15,29,.92),rgba(7,15,29,.74) 50%,rgba(7,15,29,.94)),url(plateia-mind-experience.jpg) center/cover}
+.band .in{max-width:780px;display:flex;flex-direction:column;gap:16px;text-align:center}
+.band h3{font-size:clamp(28px,6.6vw,48px)}
+.giant{font-weight:700;text-transform:uppercase;text-align:center;font-size:clamp(54px,17vw,190px);line-height:.9;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1.5px rgba(201,162,74,.4);padding:46px 0 0;white-space:nowrap;overflow:hidden}
+.offc{padding:34px 0 76px}
+.offc .in{display:grid;gap:28px;align-items:center}
+.ph2{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;max-height:560px;width:100%;background:url(julio-palco.jpg) center 28%/cover;border:1px solid rgba(201,162,74,.6);box-shadow:0 22px 60px rgba(0,0,0,.5)}
+.ph2:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,23,41,0) 55%,rgba(10,23,41,.88))}
+.ph2 span{position:absolute;left:16px;bottom:14px;z-index:1;font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#E9D9B0}
+.ocard{border:1px solid #C9A24A;border-radius:22px;padding:30px 22px;background:linear-gradient(180deg,rgba(201,162,74,.12),rgba(201,162,74,.03));display:flex;flex-direction:column;gap:14px}
+.ocard h3{font-size:clamp(26px,6vw,40px)}
+@media(min-width:860px){.offc .in{grid-template-columns:.8fr 1.2fr;gap:56px}.ocard{padding:40px 36px}}
+.why{padding:68px 0;background:#0A1729}
+.why h3{text-align:center;font-size:clamp(26px,6vw,42px);margin-bottom:30px}
+.g4{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:560px){.g4{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.g4{grid-template-columns:repeat(4,1fr)}}
+.bn{border:1px solid rgba(201,162,74,.35);border-radius:16px;padding:20px 18px;background:rgba(255,255,255,.03);display:flex;flex-direction:column;gap:6px}
+.bn svg{width:26px;height:26px;stroke:#C9A24A;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bn em{font:500 12px var(--mono);font-style:normal;letter-spacing:.14em;color:rgba(201,162,74,.7)}
+.bn b{color:#C9A24A;font-size:20px;font-weight:600;margin-top:4px}
 .bn p{font-size:15px;color:#D6D2C6}
-.dl{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(196,161,90,.6);border-radius:999px;padding:10px 16px;font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#F4F2EC}
-.dl i{flex:none;width:8px;height:8px;border-radius:50%;background:#E0301F}
-.clockw{display:flex;gap:4px;align-items:center;width:100%}.clockw div{flex:1 1 0;min-width:0;border:1px solid rgba(196,161,90,.45);border-radius:14px;padding:10px 2px;display:flex;flex-direction:column;align-items:center}
-.clockw b{font-size:clamp(24px,7.6vw,38px);color:#C4A15A;line-height:1.1}.clockw small{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#D6D2C6}.clockw i{font-style:normal;color:#C4A15A}
-.offer .btn.primary{background:#C4A15A;color:#0D1623;font-weight:700;font-size:clamp(15px,4.4vw,18px);letter-spacing:.03em;text-transform:uppercase;padding:20px 16px;box-shadow:0 8px 26px rgba(196,161,90,.28);transition:transform .15s,filter .15s}
-.offer .btn.primary:hover{filter:brightness(1.08);transform:translateY(-1px)}.offer .btn.primary:active{transform:none}.offer .btn.primary:focus-visible{outline:3px solid #F4F2EC;outline-offset:3px}
-.o7 b{display:block;font-size:clamp(18px,5vw,23px);line-height:1.2;text-transform:uppercase;text-wrap:balance}
-.o7 span{color:#A9B0BE;font-size:14px}
+.pzs{padding:72px 0;text-align:center;background:radial-gradient(circle at 50% 0,#16233A,#070F1D 70%)}
+.pzs .in{max-width:720px;display:flex;flex-direction:column;gap:18px;align-items:center}
+.pzs h3{font-size:clamp(26px,6vw,42px)}
+.clk{display:flex;gap:6px;align-items:center;width:100%}
+.clk div{flex:1 1 0;min-width:0;border:1px solid rgba(201,162,74,.5);border-radius:16px;padding:12px 2px;display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.03)}
+.clk b{font-size:clamp(28px,9vw,50px);color:#C9A24A;line-height:1.1;font-variant-numeric:tabular-nums}
+.clk small{font:9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#D6D2C6}
+.clk i{font-style:normal;color:#C9A24A;font-size:24px}
+.ofx .btn.primary{background:linear-gradient(135deg,#E3C26C,#C9A24A 55%,#A8802F);color:#0A1729;font-weight:700;font-size:clamp(15px,4.2vw,18px);letter-spacing:.03em;text-transform:uppercase;padding:20px 22px;width:100%;max-width:470px;box-shadow:0 10px 30px rgba(201,162,74,.3);transition:transform .15s,filter .15s}
+.hk{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;background:rgba(201,162,74,.12);border:1px solid #C9A24A;border-radius:999px;padding:8px 14px;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#F1DDA3;white-space:nowrap}
+.hk i{width:8px;height:8px;border-radius:50%;background:#3DDC84;box-shadow:0 0 0 4px rgba(61,220,132,.22)}
+.hero3 .lead{font-size:clamp(17px,4.6vw,21px);color:#F4F2EC;border-left:3px solid #C9A24A;padding-left:14px}
+.hero3 .lead strong{color:#E9D49A}
+.ctas{display:flex;flex-direction:column;gap:12px;width:100%;max-width:470px;align-items:stretch}
+.ofx .ctas .btn{max-width:none}
+.ofx .btn.buy{background:rgba(201,162,74,.08);color:#F1DDA3;border:2px solid #C9A24A;font-weight:700;font-size:clamp(15px,4.2vw,18px);letter-spacing:.03em;text-transform:uppercase;padding:18px 22px;width:100%}
+.ofx .btn.buy:hover{background:rgba(201,162,74,.18)}
+.ofx .btn.buy:focus-visible{outline:3px solid #F4F2EC;outline-offset:3px}
+.pzs .ctas,.close .ctas{margin:0 auto}
+.ofx .btn.primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.ofx .btn.primary:focus-visible{outline:3px solid #F4F2EC;outline-offset:3px}
+.close{--pw:min(100vw,1400px);--ph:calc(var(--pw)/1.5);padding:72px 0 calc(var(--ph) * .9);text-align:center;background:linear-gradient(180deg,#0A1729 0,#0A1729 calc(100% - var(--ph)),rgba(10,23,41,0) calc(100% - var(--ph) + 16vw)),linear-gradient(0deg,rgba(10,23,41,.35),rgba(10,23,41,.35)),url(equipe-mind-experience.jpg) center bottom/var(--pw) auto no-repeat,#0A1729}
+.close .in{max-width:760px;display:flex;flex-direction:column;gap:14px;align-items:center}
+.close h3{font-size:clamp(26px,6.6vw,50px)}
+.close .sg{color:#C9D0DD;font-size:15px}
 </style>
 
 <div class="wrap">
@@ -241,46 +287,70 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
   </form>
 
 
-  <section class="offer" id="oferta" hidden aria-live="polite">
-    <div class="sec">
-      <span class="sent">✓ Enviado com sucesso</span>
-      <span class="eyebrow">Mind Experience Day</span>
-      <h2>Sua próxima evolução começa agora.</h2>
-      <p>Você viveu um dia de novas perspectivas, mentalidade, vendas, neurociência e visão 360º do mercado imobiliário.</p>
-      <p>Mas o verdadeiro resultado de uma experiência como essa não está apenas no que você aprendeu. Está no que você vai <strong class="gd">colocar em prática</strong> a partir de agora.</p>
-    </div>
-    <div class="sec">
-      <h3>O evento terminou. Sua evolução continua.</h3>
+  <section class="ofx" id="oferta" hidden aria-live="polite">
+    <div class="tb pz"><i></i><span>Prazo até domingo, 25/10, à meia-noite</span><b><span data-u="d">00</span>d <span data-u="h">00</span>:<span data-u="m">00</span>:<span data-u="s">00</span></b></div>
+
+    <div class="hero3"><div class="in">
+      <div class="pt">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="none" stroke="#C9A24A" stroke-opacity=".28" stroke-width=".35"/><circle cx="50" cy="50" r="46" fill="none" stroke="#C9A24A" stroke-opacity=".6" stroke-width=".5" stroke-dasharray=".1 1.6" stroke-linecap="round"/><circle cx="50" cy="50" r="43" fill="none" stroke="#C9A24A" stroke-opacity=".2" stroke-width=".3"/></svg>
+        <div class="ph" role="img" aria-label="Júlio Rolim no palco do Mind Experience Day"></div>
+        <span class="nm">Júlio Rolim</span>
+      </div>
+      <div class="tx">
+        <span class="hk"><i></i>Vagas abertas · Mentoria em grupo</span>
+        
+        <h2>Sua próxima <span class="gold">evolução</span> começa agora.</h2>
+        <p class="lead"><strong>Estamos abrindo agora as vagas da Mentoria em Grupo Mind Brokers 360º.</strong> Desconto exclusivo para quem participou do Mind Experience Day, <strong>até domingo, 25 de outubro, à meia-noite.</strong></p>
+        <p>Você viveu um dia de novas perspectivas, mentalidade, vendas, neurociência e visão 360º do mercado imobiliário.</p>
+        <p>Mas o verdadeiro resultado de uma experiência como essa não está apenas no que você aprendeu. Está no que você vai <strong>colocar em prática</strong> a partir de agora.</p>
+        <div class="ctas"><a class="btn primary cta" data-k="buy" href="#" target="_blank" rel="noopener">Quero garantir meu desconto agora</a></div>
+      </div>
+    </div></div>
+
+    <div class="band"><div class="in">
+      <h3>O evento terminou. <span class="gold">Sua evolução continua.</span></h3>
       <p>O verdadeiro valor de uma experiência está naquilo que você leva para a prática.</p>
       <p>Para agradecer a quem esteve conosco no Mind Experience Day, preparamos uma condição especial de lançamento para a Mentoria Mind Brokers 360º.</p>
       <p>Uma oportunidade para continuar desenvolvendo sua mentalidade, aprimorar sua atuação comercial e transformar conhecimento em estratégias aplicáveis ao mercado imobiliário.</p>
-    </div>
-    <div class="sec ob" id="obx">
-      <span class="eyebrow">Condição especial para participantes</span>
-      <h3>Desconto exclusivo na Mentoria Mind Brokers 360º</h3>
-      <p>Uma condição especial de lançamento para quem participou do Mind Experience Day e deseja continuar essa jornada de desenvolvimento, mentalidade e estratégia no mercado imobiliário.</p>
-      <p>Essa oportunidade foi preparada especialmente para os participantes do evento que desejam dar o próximo passo.</p>
-      <p>Para acessar sua condição exclusiva, entre no grupo da mentoria dentro do prazo estabelecido.</p>
-    </div>
-    <div class="sec">
-      <h3>Por que dar o próximo passo?</h3>
-      <div class="grid4">
-        <div class="bn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg><b>Mentalidade</b><p>Continue desenvolvendo sua forma de pensar, tomar decisões e enxergar oportunidades.</p></div>
-        <div class="bn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><b>Estratégia</b><p>Aprofunde sua visão sobre o mercado imobiliário e suas possibilidades de atuação.</p></div>
-        <div class="bn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16 9.5"/></svg><b>Aplicação prática</b><p>Transforme os aprendizados do evento em ações que contribuam para o seu desenvolvimento profissional.</p></div>
-        <div class="bn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><b>Continuidade</b><p>Conheça a proposta da Mentoria Mind Brokers 360º e avalie como ela pode contribuir para sua jornada.</p></div>
+    </div></div>
+
+    <div class="giant pz" aria-hidden="true">Evolução</div>
+    <div class="offc pz"><div class="in">
+      <div class="ph2" role="img" aria-label="Júlio Rolim palestrando"><span>Júlio Rolim · Mind Brokers 360º</span></div>
+      <div class="ocard">
+        <span class="eb">Condição especial para participantes</span>
+        <h3>Desconto exclusivo na <span class="gold">Mentoria Mind Brokers 360º</span></h3>
+        <p>Uma condição especial de lançamento para quem participou do Mind Experience Day e deseja continuar essa jornada de desenvolvimento, mentalidade e estratégia no mercado imobiliário.</p>
+        <p>Essa oportunidade foi preparada especialmente para os participantes do evento que desejam dar o próximo passo.</p>
+        <p>Para acessar sua condição exclusiva, você precisa participar da <strong>mentoria em grupo</strong>.</p>
       </div>
-    </div>
-    <div class="sec" id="o5">
-      <h3>Prazo para participar da mentoria</h3>
+    </div></div>
+
+    <div class="why"><div class="in">
+      <h3>Por que dar o <span class="gold">próximo passo?</span></h3>
+      <div class="g4">
+        <div class="bn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg><em>01</em><b>Mentalidade</b><p>Continue desenvolvendo sua forma de pensar, tomar decisões e enxergar oportunidades.</p></div>
+        <div class="bn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><em>02</em><b>Estratégia</b><p>Aprofunde sua visão sobre o mercado imobiliário e suas possibilidades de atuação.</p></div>
+        <div class="bn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16 9.5"/></svg><em>03</em><b>Aplicação prática</b><p>Transforme os aprendizados do evento em ações que contribuam para o seu desenvolvimento profissional.</p></div>
+        <div class="bn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><em>04</em><b>Continuidade</b><p>Conheça a proposta da Mentoria Mind Brokers 360º e avalie como ela pode contribuir para sua jornada.</p></div>
+      </div>
+    </div></div>
+
+    <div class="pzs pz"><div class="in">
+      <span class="eb">Prazo</span>
+      <h3>Prazo para participar da <span class="gold">mentoria</span></h3>
       <p>Vai até domingo, 25 de outubro, à meia-noite.</p>
-      <div class="clockw" id="oclk"><div><b id="od">00</b><small>dias</small></div><i>:</i><div><b id="oh">00</b><small>horas</small></div><i>:</i><div><b id="om">00</b><small>min</small></div><i>:</i><div><b id="os">00</b><small>seg</small></div></div>
-    </div>
-    <a class="btn primary" id="olink" href="#" target="_blank" rel="noopener">Quero receber a minha condição agora</a>
-    <div class="o7"><b>O evento foi o começo. O próximo passo é seu.</b><span>Mind Brokers 360º — Mentalidade, visão e estratégia para o mercado imobiliário.</span></div>
+      <div class="clk"><div><b data-u="d">00</b><small>dias</small></div><i>:</i><div><b data-u="h">00</b><small>horas</small></div><i>:</i><div><b data-u="m">00</b><small>min</small></div><i>:</i><div><b data-u="s">00</b><small>seg</small></div></div>
+      <div class="ctas"><a class="btn primary cta" data-k="buy" href="#" target="_blank" rel="noopener">Quero garantir meu desconto agora</a></div>
+    </div></div>
+
+    <div class="close"><div class="in">
+      <h3>O evento foi o começo.<br><span class="gold">O próximo passo é seu.</span></h3>
+      <span class="sg">Mind Brokers 360º — Mentalidade, visão e estratégia para o mercado imobiliário.</span>
+    </div></div>
   </section>
 
-  <footer>Obrigado por fazer parte do Mind Experience Day · <a href="https://mindbrokers360.com/" target="_blank" rel="noopener">mindbrokers360.com</a> · <a href="https://www.instagram.com/mindbrokers360/" target="_blank" rel="noopener">@mindbrokers360</a></footer>
+  <footer><a href="https://mindbrokers360.com/" target="_blank" rel="noopener">mindbrokers360.com</a> · <a href="https://www.instagram.com/mindbrokers360/" target="_blank" rel="noopener">@mindbrokers360</a></footer>
 </div>
 
 <script>
@@ -340,12 +410,14 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
   }
   F.addEventListener('change',function(e){update();var t=e.target;if(t&&t.name&&t.value==='Outro'){var o=document.getElementById(t.name+'_outro');if(o)o.focus()}}); F.addEventListener('input',update);
   
-  var WA_NUM='5561984178464';function waHref(exp){var m=exp?'Olá, Júlio Rolim, tudo bem? Participei do Mind Experience Day e gostaria de saber mais sobre a mentoria Mind Brokers 360º.':'Olá, Júlio Rolim, tudo bem? Participei do Mind Experience Day e gostaria de receber minha condição exclusiva para entrar no grupo da mentoria Mind Brokers 360º. Como faço?';return 'https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(m)}
+  var WA_NUM='5561984178464';function waHref(k){var nm=((document.getElementById('nome')||{}).value||'').trim(),pf=((document.getElementById('perfil')||{}).value||'').trim();var who=nm?' Meu nome é '+nm+(pf?' ('+pf+')':'')+'.':'';var m;if(k==='buy')m='Olá, Júlio Rolim, tudo bem?'+who+' Participei do Mind Experience Day, enviei minha avaliação e quero garantir meu desconto exclusivo na mentoria em grupo Mind Brokers 360º. Como funciona e como faço para garantir minha vaga?';else m='Olá, Júlio Rolim, tudo bem?'+who+' Participei do Mind Experience Day, enviei minha avaliação e quero saber mais sobre a mentoria em grupo Mind Brokers 360º: como vai funcionar, o que está incluso e como acessar a condição exclusiva.';return 'https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(m)}
   var OFFER_END=Date.parse('2026-10-26T00:00:00-03:00'),offs=0;
   function tickOffer(){ var left=OFFER_END-(Date.now()+offs);
-    if(left<=0){ document.getElementById('o5').hidden=true; document.getElementById('obx').hidden=true; document.getElementById('olink').textContent='Quero conhecer a mentoria'; document.getElementById('olink').href=waHref(true); return false; }
+    if(left<=0){ document.querySelectorAll('.pz').forEach(function(e){e.hidden=true}); setCta(true); return false; }
     var t=Math.floor(left/1000); function p(n){return (n<10?'0':'')+n}
-    document.getElementById('od').textContent=p(Math.floor(t/86400)); document.getElementById('oh').textContent=p(Math.floor(t%86400/3600)); document.getElementById('om').textContent=p(Math.floor(t%3600/60)); document.getElementById('os').textContent=p(t%60); return true; }
+    eachU('d',p(Math.floor(t/86400))); eachU('h',p(Math.floor(t%86400/3600))); eachU('m',p(Math.floor(t%3600/60))); eachU('s',p(t%60)); return true; }
+  function eachU(u,v){ document.querySelectorAll('[data-u="'+u+'"]').forEach(function(e){e.textContent=v}); }
+  function setCta(exp){ document.querySelectorAll('.cta').forEach(function(a){ var kk=a.getAttribute('data-k'); a.href=waHref(exp?'info':kk); if(exp) a.textContent='Quero conhecer a mentoria'; }); }
   try{ var t0=Date.now(); fetch(location.href,{method:'HEAD',cache:'no-store'}).then(function(r){var d=Date.parse(r.headers.get('Date')||''); if(d) offs=d-(t0+(Date.now()-t0)/2);}).catch(function(){}); }catch(x){}
   function payload(){ var d={tipo:'avaliacao',pagina:location.href};
     F.querySelectorAll('select,input[type=radio]:checked,input[type=text],input[type=tel],textarea').forEach(function(e){ var k=e.name||e.id; if(k) d[k]=e.value; });
@@ -357,13 +429,13 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
   function mostrarOferta(){
     try{ localStorage.removeItem(KEY); }catch(x){}
     ['intro','progress','f'].forEach(function(id){ var el=document.getElementById(id)||document.querySelector('.'+id); if(el) el.hidden=true; });
-    var o=document.getElementById('oferta'); o.hidden=false; document.getElementById('olink').href=waHref(false);
+    document.body.classList.add('on-offer'); var hd=document.querySelector('.hero2'); if(hd) hd.hidden=true;
+    var o=document.getElementById('oferta'); o.hidden=false; setCta(false);
     if(tickOffer()) setInterval(tickOffer,1000);
-    var tt=document.querySelector('.ttl'); if(tt) tt.textContent='Desconto exclusivo para mentoria em grupo'; var dd=document.querySelector('.dt'); if(dd) dd.hidden=true;
     window.scrollTo({top:0,behavior:'smooth'}); }
   var enviando=false;
   wa.addEventListener('click',function(ev){
-    if(enviando||!check(ev))return; enviando=true; wa.disabled=true; wa.textContent='Enviando…'; status.className='status'; status.textContent='Enviando suas respostas…';
+    if(enviando||!check(ev))return; enviando=true; ['julio-hero.jpg','julio-palco.jpg','equipe-mind-experience.jpg','plateia-mind-experience.jpg'].forEach(function(s){var im=new Image(); im.src=s;}); wa.disabled=true; wa.textContent='Enviando…'; status.className='status'; status.textContent='Enviando suas respostas…';
     var sbar=document.getElementById('sbar'),sfill=document.getElementById('sfill'),spct=document.getElementById('spct'),pr=0; function setP(v){ sfill.style.width=v+'%'; spct.textContent=Math.round(v)+'%'; if(v>=85){ spct.style.left='calc('+(v-14)+'% - 8px)'; spct.style.color='#04141F'; } else { spct.style.left='calc('+v+'% + 12px)'; spct.style.color='#19E37A'; } } sbar.hidden=false; setP(0); var ptimer=setInterval(function(){pr+=(92-pr)*0.07; setP(pr);},150);
     fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload())})
       .then(function(){ clearInterval(ptimer); setP(100); wa.textContent='Enviado ✓'; status.className='status ok'; status.textContent='Ficha enviada com sucesso!'; setTimeout(mostrarOferta,1500); }, function(){ clearInterval(ptimer); sbar.hidden=true; enviando=false; wa.disabled=false; wa.textContent='Enviar'; status.className='status'; status.style.color='#B3261E'; status.textContent='Não foi possível enviar agora. Verifique sua conexão e toque em Enviar novamente. Suas respostas continuam preenchidas.'; }); });
