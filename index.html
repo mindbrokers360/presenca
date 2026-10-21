@@ -153,7 +153,7 @@ section.card{background:var(--surface);color:var(--ink);border:1px solid var(--l
 
   <section class="card">
     <h2><span class="n">01</span>Sobre você</h2>
-    <div class="q"><label for="nome">Nome <span class="sub">(opcional)</span></label><input type="text" id="nome" autocomplete="name"></div>
+    <div class="q"><label for="nome">Nome <span class="sub">(obrigatório · primeiro e último nome)</span></label><input type="text" id="nome" name="nome" autocomplete="name" placeholder="Primeiro e último nome"></div>
     <div class="q"><span class="lab">Você é <span class="sub">(obrigatório)</span></span><select class="rsel" id="perfil" name="perfil"><option value="">Escolha uma opção</option><option>Corretor(a)</option><option>Arquiteto(a)</option><option>Vendedor(a) de alto padrão</option><option>Gestor(a) / dono(a) de imobiliária</option><option>Outro</option></select><input type="text" class="outro" id="perfil_outro" placeholder="Qual? Escreva aqui" hidden></div>
     <div class="q"><span class="lab">Seu ingresso</span><select class="rsel" id="ingresso" name="ingresso"><option value="">Escolha uma opção</option><option>Platinum</option><option>VIP</option><option>Experience</option><option>Convidado(a)</option></select></div>
     <div class="q"><span class="lab">Como ficou sabendo do evento?</span><select class="rsel" id="origem" name="origem"><option value="">Escolha uma opção</option><option>Instagram</option><option>WhatsApp</option><option>Indicação de amigo</option><option>Minha imobiliária ou empresa</option><option>Outro</option></select><input type="text" class="outro" id="origem_outro" placeholder="Qual? Escreva aqui" hidden></div>
@@ -297,7 +297,7 @@ section.card{background:var(--surface);color:var(--ink);border:1px solid var(--l
   /* máscara do telefone */
   var tel=document.getElementById('tel');tel.addEventListener('input',function(){var d=tel.value.replace(/\D/g,'').slice(0,11);tel.value=d.length>10?'('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7):d.length>6?'('+d.slice(0,2)+') '+d.slice(2,6)+'-'+d.slice(6):d.length>2?'('+d.slice(0,2)+') '+d.slice(2):d.length?'('+d:''});
   /* campos obrigatórios */
-  function missing(){var m=[];if(!radio('nps'))m.push(['nps','a nota de 0 a 10']);if(!radio('perfil'))m.push(['perfil','o seu perfil']);return m}
+  function missing(){var m=[];if(val('nome').split(/\s+/).filter(Boolean).length<2)m.push(['nome','o seu primeiro e último nome']);if(!radio('nps'))m.push(['nps','a nota de 0 a 10']);if(!radio('perfil'))m.push(['perfil','o seu perfil']);return m}
   function check(ev){F.querySelectorAll('.err').forEach(function(e){e.classList.remove('err')});var m=missing();if(!m.length)return true;ev.preventDefault();m.forEach(function(x){var el=F.querySelector('[name="'+x[0]+'"]');if(el&&el.closest('.q'))el.closest('.q').classList.add('err')});var first=F.querySelector('.err');if(first)first.scrollIntoView({behavior:'smooth',block:'center'});status.className='status';status.textContent='Falta responder: '+m.map(function(x){return x[1]}).join(' e ')+'.';return false}
   /* rascunho no navegador */
   var KEY='med-avaliacao-rascunho';function save(){try{var o={};F.querySelectorAll('input,textarea,select').forEach(function(e){if(e.tagName==='SELECT')o[e.name]=e.value;else if(e.type==='radio'){if(e.checked)o[e.name]=e.value}else if(e.id)o[e.id]=e.value});localStorage.setItem(KEY,JSON.stringify(o))}catch(x){}}
