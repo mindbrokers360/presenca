@@ -127,6 +127,10 @@ section.card{padding:32px 26px;gap:26px}
 #wa:hover{filter:brightness(1.07)}
 footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-decoration:underline}
 
+.sbar{height:10px;border-radius:999px;background:#E3DCC8;overflow:hidden}
+.sbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#2E9E6B,#5FD39A);transition:width .5s ease}
+.status.ok{font-weight:600}
+
 .offer{background:radial-gradient(circle at 50% 0,#16233A,#0D1623 70%);color:#F4F2EC;border:1px solid rgba(196,161,90,.55);border-radius:22px;padding:34px 20px;display:flex;flex-direction:column;gap:30px;text-align:center}
 .offer .eyebrow{color:#C4A15A}
 .offer h2{margin:0;font-size:clamp(30px,8.4vw,48px);line-height:1.04;font-weight:700;text-transform:uppercase;text-wrap:balance}
@@ -228,6 +232,7 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
     <p class="hint" style="margin:0;font-size:13px">Ao enviar, você concorda que as respostas e os dados informados (nome e WhatsApp, quando preenchido) sejam usados pela organização para avaliar o evento e planejar as próximas edições. Se preferir, deixe o WhatsApp em branco.</p>
     <p class="hint" style="margin:0">Ao tocar em Enviar, suas respostas são registradas pela organização.</p>
     <button type="button" class="btn primary" id="wa">Enviar</button>
+    <div class="sbar" id="sbar" hidden><i id="sfill"></i></div>
     <p class="status" id="status" role="status"></p>
   </section>
 
@@ -237,7 +242,7 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
 
   <section class="offer" id="oferta" hidden aria-live="polite">
     <div class="sec">
-      <span class="sent">✓ Avaliação enviada</span>
+      <span class="sent">✓ Enviado com sucesso</span>
       <span class="eyebrow">Mind Experience Day</span>
       <h2>Sua próxima evolução começa agora.</h2>
       <p>Você viveu um dia de novas perspectivas, mentalidade, vendas, neurociência e visão 360º do mercado imobiliário.</p>
@@ -354,12 +359,14 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
     ['intro','progress','f'].forEach(function(id){ var el=document.getElementById(id)||document.querySelector('.'+id); if(el) el.hidden=true; });
     var o=document.getElementById('oferta'); o.hidden=false; document.getElementById('olink').href=waHref(false);
     if(tickOffer()) setInterval(tickOffer,1000);
-    window.scrollTo({top:o.offsetTop-12,behavior:'smooth'}); }
+    var tt=document.querySelector('.ttl'); if(tt) tt.textContent='Desconto exclusivo para mentoria em grupo'; var dd=document.querySelector('.dt'); if(dd) dd.hidden=true;
+    window.scrollTo({top:0,behavior:'smooth'}); }
   var enviando=false;
   wa.addEventListener('click',function(ev){
-    if(enviando||!check(ev))return; enviando=true; wa.disabled=true; wa.textContent='Enviando…'; status.className='status'; status.textContent='';
+    if(enviando||!check(ev))return; enviando=true; wa.disabled=true; wa.textContent='Enviando…'; status.className='status'; status.textContent='Enviando suas respostas…';
+    var sbar=document.getElementById('sbar'),sfill=document.getElementById('sfill'),pr=0; sbar.hidden=false; sfill.style.width='0%'; var ptimer=setInterval(function(){pr+=(92-pr)*0.07; sfill.style.width=pr.toFixed(1)+'%';},150);
     fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload())})
-      .then(mostrarOferta, function(){ enviando=false; wa.disabled=false; wa.textContent='Enviar'; status.className='status'; status.style.color='#B3261E'; status.textContent='Não foi possível enviar agora. Verifique sua conexão e toque em Enviar novamente. Suas respostas continuam preenchidas.'; }); });
+      .then(function(){ clearInterval(ptimer); sfill.style.width='100%'; wa.textContent='Enviado ✓'; status.className='status ok'; status.textContent='Enviado com sucesso!'; setTimeout(mostrarOferta,1500); }, function(){ clearInterval(ptimer); sbar.hidden=true; enviando=false; wa.disabled=false; wa.textContent='Enviar'; status.className='status'; status.style.color='#B3261E'; status.textContent='Não foi possível enviar agora. Verifique sua conexão e toque em Enviar novamente. Suas respostas continuam preenchidas.'; }); });
   F.addEventListener('submit',function(e){e.preventDefault();});
   load();update();
 })();
