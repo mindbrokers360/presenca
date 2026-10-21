@@ -127,8 +127,9 @@ section.card{padding:32px 26px;gap:26px}
 #wa:hover{filter:brightness(1.07)}
 footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-decoration:underline}
 
-.sbar{height:10px;border-radius:999px;background:#E3DCC8;overflow:hidden}
-.sbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#2E9E6B,#5FD39A);transition:width .5s ease}
+.sbar{position:relative;height:46px;border:3px solid #19E37A;border-radius:999px;background:#050A24;overflow:hidden;box-shadow:0 0 18px rgba(25,227,122,.55),inset 0 0 12px rgba(25,227,122,.18)}
+.sbar i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,rgba(25,227,122,0),#19E37A);transition:width .5s ease}
+.sbar b{position:absolute;top:50%;transform:translateY(-50%);left:14px;color:#19E37A;font:700 15px var(--display);transition:left .5s ease}
 .status.ok{font-weight:600}
 
 .offer{background:radial-gradient(circle at 50% 0,#16233A,#0D1623 70%);color:#F4F2EC;border:1px solid rgba(196,161,90,.55);border-radius:22px;padding:34px 20px;display:flex;flex-direction:column;gap:30px;text-align:center}
@@ -232,7 +233,7 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
     <p class="hint" style="margin:0;font-size:13px">Ao enviar, você concorda que as respostas e os dados informados (nome e WhatsApp, quando preenchido) sejam usados pela organização para avaliar o evento e planejar as próximas edições. Se preferir, deixe o WhatsApp em branco.</p>
     <p class="hint" style="margin:0">Ao tocar em Enviar, suas respostas são registradas pela organização.</p>
     <button type="button" class="btn primary" id="wa">Enviar</button>
-    <div class="sbar" id="sbar" hidden><i id="sfill"></i></div>
+    <div class="sbar" id="sbar" hidden><i id="sfill"></i><b id="spct">0%</b></div>
     <p class="status" id="status" role="status"></p>
   </section>
 
@@ -363,9 +364,9 @@ footer a{color:#C9A24A;text-decoration:none;font-weight:500}footer a:hover{text-
   var enviando=false;
   wa.addEventListener('click',function(ev){
     if(enviando||!check(ev))return; enviando=true; wa.disabled=true; wa.textContent='Enviando…'; status.className='status'; status.textContent='Enviando suas respostas…';
-    var sbar=document.getElementById('sbar'),sfill=document.getElementById('sfill'),pr=0; sbar.hidden=false; sfill.style.width='0%'; var ptimer=setInterval(function(){pr+=(92-pr)*0.07; sfill.style.width=pr.toFixed(1)+'%';},150);
+    var sbar=document.getElementById('sbar'),sfill=document.getElementById('sfill'),spct=document.getElementById('spct'),pr=0; function setP(v){ sfill.style.width=v+'%'; spct.textContent=Math.round(v)+'%'; if(v>=85){ spct.style.left='calc('+(v-14)+'% - 8px)'; spct.style.color='#04141F'; } else { spct.style.left='calc('+v+'% + 12px)'; spct.style.color='#19E37A'; } } sbar.hidden=false; setP(0); var ptimer=setInterval(function(){pr+=(92-pr)*0.07; setP(pr);},150);
     fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload())})
-      .then(function(){ clearInterval(ptimer); sfill.style.width='100%'; wa.textContent='Enviado ✓'; status.className='status ok'; status.textContent='Enviado com sucesso!'; setTimeout(mostrarOferta,1500); }, function(){ clearInterval(ptimer); sbar.hidden=true; enviando=false; wa.disabled=false; wa.textContent='Enviar'; status.className='status'; status.style.color='#B3261E'; status.textContent='Não foi possível enviar agora. Verifique sua conexão e toque em Enviar novamente. Suas respostas continuam preenchidas.'; }); });
+      .then(function(){ clearInterval(ptimer); setP(100); wa.textContent='Enviado ✓'; status.className='status ok'; status.textContent='Ficha enviada com sucesso!'; setTimeout(mostrarOferta,1500); }, function(){ clearInterval(ptimer); sbar.hidden=true; enviando=false; wa.disabled=false; wa.textContent='Enviar'; status.className='status'; status.style.color='#B3261E'; status.textContent='Não foi possível enviar agora. Verifique sua conexão e toque em Enviar novamente. Suas respostas continuam preenchidas.'; }); });
   F.addEventListener('submit',function(e){e.preventDefault();});
   load();update();
 })();
